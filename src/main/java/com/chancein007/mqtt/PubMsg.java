@@ -9,14 +9,9 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
  
-/**
- * 发送数据到mqtt服务器
- * @author：涂有
- * @date 2017年8月16日 下午11:15:22
- */
 public class PubMsg {
 	private static int qos = 2; //只有一次
-	private static String broker = "tcp://10.100.124.206:1883";
+	private static String broker = "tcp://127.0.0.1:1883";
 	private static String userName = "tuyou";
 	private static String passWord = "tuyou";
  
@@ -30,8 +25,6 @@ public class PubMsg {
 		connOpts.setPassword(password.toCharArray());
 		connOpts.setConnectionTimeout(10);
 		connOpts.setKeepAliveInterval(20);
-//		String[] uris = {"tcp://10.100.124.206:1883","tcp://10.100.124.207:1883"};
-//		connOpts.setServerURIs(uris);  //起到负载均衡和高可用的作用
 		MqttClient mqttClient = new MqttClient(broker, clientId, persistence);
 		mqttClient.setCallback(new PushCallback("test"));
 		mqttClient.connect(connOpts);

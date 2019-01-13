@@ -8,7 +8,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class SubMsg {
  
      private static int qos = 2;
-     private static String broker = "tcp://10.100.124.207:1883";
+     private static String broker = "tcp://127.0.0.1:1883";
      private static String userName = "tuyou";
      private static String passWord = "tuyou";
     
